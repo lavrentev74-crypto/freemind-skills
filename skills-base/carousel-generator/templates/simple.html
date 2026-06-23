@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+  simple.html — a minimal starter template.
+  Replace colors, fonts, decorations with your own brand.
+  Claude Code can customize this file for you — just ask.
+
+  Placeholders the renderer replaces:
+    {{body}}         — slide main content (HTML)
+    {{decor}}        — optional decorative overlay HTML
+    {{slideNumber}}  — current slide index (1-based)
+    {{totalSlides}}  — total slide count
+    {{config.cta}}   — footer CTA text from data.json config
+    asset:file       — use syntax like (asset:name.svg) wrapped in double braces to inline an asset
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  /* {{FONTS}} */
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1a1a1a;
+    overflow: hidden;
+  }
+
+  .slide {
+    width: 100%;
+    height: 100%;
+    background: #fafafa;
+    position: relative;
+    padding: 120px 90px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .decor { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .float-asset { position: absolute; }
+  .float-asset img { width: 100%; height: 100%; }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.4);
+  }
+
+  /* Default text styles — override inline in data.json as needed */
+  h1, .title {
+    font-size: 76px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+  }
+  h2, .subtitle {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: rgba(0,0,0,0.65);
+  }
+  p, .body-text {
+    font-size: 32px;
+    line-height: 1.45;
+    font-weight: 400;
+  }
+
+  .accent { color: #0066ff; }
+  .muted { color: rgba(0,0,0,0.55); }
+</style>
+</head>
+<body>
+  <div class="slide">
+    <div class="decor">{{decor}}</div>
+    <div class="content">{{body}}</div>
+    <div class="footer">
+      <span>{{slideNumber}} / {{totalSlides}}</span>
+      <span>{{config.cta}}</span>
+    </div>
+  </div>
+</body>
+</html>
